@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.RunMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.Run">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="runner_id" property="runnerId" />
+        <result column="type" property="type" />
+        <result column="reward" property="reward" />
+        <result column="content" property="content" />
+        <result column="user" property="user" />
+        <result column="avatar" property="avatar" />
+        <result column="location" property="location" />
+        <result column="time" property="time" />
+        <result column="status" property="status" />
+        <result column="status_class" property="statusClass" />
+        <result column="color" property="color" />
+        <result column="delivery_photo" property="deliveryPhoto" />
+        <result column="delivery_desc" property="deliveryDesc" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, runner_id, type, reward, content, `user`, avatar, location, time, status, status_class, color, delivery_photo, delivery_desc
+    </sql>
+
+</mapper>

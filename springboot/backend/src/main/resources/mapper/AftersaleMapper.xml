@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.AftersaleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.Aftersale">
+        <id column="id" property="id" />
+        <result column="after_sale_id" property="afterSaleId" />
+        <result column="order_id" property="orderId" />
+        <result column="order_title" property="orderTitle" />
+        <result column="order_content" property="orderContent" />
+        <result column="order_reward" property="orderReward" />
+        <result column="type" property="type" />
+        <result column="type_text" property="typeText" />
+        <result column="reason" property="reason" />
+        <result column="reason_text" property="reasonText" />
+        <result column="reason_desc" property="reasonDesc" />
+        <result column="amount" property="amount" />
+        <result column="actual_refund" property="actualRefund" />
+        <result column="description" property="description" />
+        <result column="images" property="images" />
+        <result column="status" property="status" />
+        <result column="status_text" property="statusText" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="timeline" property="timeline" />
+        <result column="company" property="company" />
+        <result column="tracking_no" property="trackingNo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, after_sale_id, order_id, order_title, order_content, order_reward, type, type_text, reason, reason_text, reason_desc, amount, actual_refund, description, images, status, status_text, create_time, update_time, timeline, company, tracking_no
+    </sql>
+
+</mapper>

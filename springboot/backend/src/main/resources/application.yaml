@@ -1,0 +1,67 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 修正数据库名 shopfinal
+    url: ${DB_URL:jdbc:mysql://localhost:3306/shopfinal?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:111666}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      filters: stat,wall
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: admin
+        allow: ""
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+mybatis-plus:
+  # 递归扫描所有mapper下xml
+  mapper-locations: classpath:mapper/**/*.xml
+  # 修正实体包路径
+  type-aliases-package: com.shop.backend.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 可选：yml方式扫描Mapper接口（也可以用启动类@MapperScan）
+  global-config:
+    mapper-scan: com.shop.backend.mapper
+
+# Knife4j Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: "电商平台"
+      packages-to-scan: com.shop.backend.controller
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+agent:
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+    base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+    model: ${OPENAI_MODEL:gpt-4o-mini}
+    timeout-seconds: 30

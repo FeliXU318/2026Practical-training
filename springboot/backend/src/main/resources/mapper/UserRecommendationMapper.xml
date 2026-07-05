@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.UserRecommendationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.UserRecommendation">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="product_id" property="productId" />
+        <result column="product_code" property="productCode" />
+        <result column="product_name" property="productName" />
+        <result column="category" property="category" />
+        <result column="score" property="score" />
+        <result column="reason" property="reason" />
+        <result column="model_version" property="modelVersion" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, product_id, product_code, product_name, category, score, reason, model_version, updated_at
+    </sql>
+
+</mapper>

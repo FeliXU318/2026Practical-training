@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.CartMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.Cart">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="cart_key" property="cartKey" />
+        <result column="product_id" property="productId" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="image" property="image" />
+        <result column="quantity" property="quantity" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, cart_key, product_id, name, price, image, quantity
+    </sql>
+
+</mapper>

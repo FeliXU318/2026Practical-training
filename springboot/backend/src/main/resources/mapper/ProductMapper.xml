@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.Product">
+        <id column="product_id" property="productId" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="product_name" property="productName" />
+        <result column="category" property="category" />
+        <result column="price" property="price" />
+        <result column="original_price" property="originalPrice" />
+        <result column="sales" property="sales" />
+        <result column="stock" property="stock" />
+        <result column="image" property="image" />
+        <result column="unit" property="unit" />
+        <result column="tag" property="tag" />
+        <result column="category_id" property="categoryId" />
+        <result column="product_type" property="productType" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        product_id, merchant_id, product_name, category, price, original_price, sales, stock, image, unit, tag, category_id, product_type
+    </sql>
+
+</mapper>

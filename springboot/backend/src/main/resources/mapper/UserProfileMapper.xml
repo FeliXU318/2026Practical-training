@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.UserProfileMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.UserProfile">
+        <id column="user_id" property="userId" />
+        <result column="nickname" property="nickname" />
+        <result column="order_count" property="orderCount" />
+        <result column="paid_order_count" property="paidOrderCount" />
+        <result column="refund_order_count" property="refundOrderCount" />
+        <result column="total_amount" property="totalAmount" />
+        <result column="avg_order_amount" property="avgOrderAmount" />
+        <result column="last_order_time" property="lastOrderTime" />
+        <result column="favorite_category" property="favoriteCategory" />
+        <result column="complaint_count" property="complaintCount" />
+        <result column="user_level" property="userLevel" />
+        <result column="consume_level" property="consumeLevel" />
+        <result column="activity_level" property="activityLevel" />
+        <result column="risk_level" property="riskLevel" />
+        <result column="cluster_id" property="clusterId" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, nickname, order_count, paid_order_count, refund_order_count, total_amount, avg_order_amount, last_order_time, favorite_category, complaint_count, user_level, consume_level, activity_level, risk_level, cluster_id, updated_at
+    </sql>
+
+</mapper>

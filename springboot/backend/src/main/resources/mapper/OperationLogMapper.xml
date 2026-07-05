@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.OperationLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.OperationLog">
+        <id column="id" property="id" />
+        <result column="admin_id" property="adminId" />
+        <result column="module" property="module" />
+        <result column="action" property="action" />
+        <result column="target_id" property="targetId" />
+        <result column="detail" property="detail" />
+        <result column="created_at" property="createdAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, admin_id, module, action, target_id, detail, created_at
+    </sql>
+
+</mapper>

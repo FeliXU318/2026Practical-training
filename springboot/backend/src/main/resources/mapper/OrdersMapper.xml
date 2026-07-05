@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.OrdersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.Orders">
+        <id column="order_id" property="orderId" />
+        <result column="user_id" property="userId" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="order_type" property="orderType" />
+        <result column="total_amount" property="totalAmount" />
+        <result column="pay_status" property="payStatus" />
+        <result column="order_status" property="orderStatus" />
+        <result column="delivery_type" property="deliveryType" />
+        <result column="address" property="address" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="reward" property="reward" />
+        <result column="status_class" property="statusClass" />
+        <result column="time" property="time" />
+        <result column="location" property="location" />
+        <result column="color" property="color" />
+        <result column="rewarded" property="rewarded" />
+        <result column="after_sale_id" property="afterSaleId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_id, user_id, merchant_id, order_type, total_amount, pay_status, order_status, delivery_type, address, title, content, reward, status_class, time, location, color, rewarded, after_sale_id
+    </sql>
+
+</mapper>

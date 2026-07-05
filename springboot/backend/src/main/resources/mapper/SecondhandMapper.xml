@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.backend.mapper.SecondhandMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.backend.entity.Secondhand">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="title" property="title" />
+        <result column="price" property="price" />
+        <result column="original_price" property="originalPrice" />
+        <result column="image" property="image" />
+        <result column="seller" property="seller" />
+        <result column="campus" property="campus" />
+        <result column="time" property="time" />
+        <result column="category" property="category" />
+        <result column="description" property="description" />
+        <result column="sold" property="sold" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, title, price, original_price, image, seller, campus, time, category, description, sold
+    </sql>
+
+</mapper>

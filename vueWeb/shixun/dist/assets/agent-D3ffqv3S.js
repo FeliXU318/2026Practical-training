@@ -1,0 +1,1 @@
+import{r as n}from"./request-DlSW3KHE.js";const a={timeout:9e4};function e(t){return n.post("/admin/agent/dashboard",t,a)}function o(t){return n.post("/admin/agent/complaint",t,a)}function u(t){return n.post("/admin/agent/audit",t,a)}export{u as a,o as b,e as r};
