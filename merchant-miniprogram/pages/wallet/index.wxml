@@ -1,0 +1,49 @@
+<view class="wallet-page safe-bottom">
+  <view class="balance-card">
+    <view class="balance-label">可提现余额（元）</view>
+    <view class="balance-value">{{loading ? '--' : wallet.availableText}}</view>
+    <view class="balance-metrics">
+      <view class="balance-metric">
+        <text class="metric-value">{{loading ? '--' : wallet.pendingText}}</text>
+        <text class="metric-label">待结算</text>
+      </view>
+      <view class="metric-divider"></view>
+      <view class="balance-metric">
+        <text class="metric-value">{{loading ? '--' : wallet.withdrawnText}}</text>
+        <text class="metric-label">累计提现</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="wallet-section withdraw-section">
+    <view class="section-title">申请提现</view>
+    <view class="amount-label">提现金额</view>
+    <view class="amount-field">
+      <text class="currency">¥</text>
+      <input class="amount-input" type="digit" value="{{amount}}" bindinput="handleAmountInput" placeholder="最低 1.00 元" maxlength="10" />
+      <text class="all-action" bindtap="withdrawAll">全部提现</text>
+    </view>
+    <view class="withdraw-hint">当前可提现 ¥{{wallet.availableText}}，提现免手续费</view>
+    <view class="account-row">
+      <view>
+        <view class="account-title">到账账户</view>
+        <view class="account-desc">预计 2 小时内到账</view>
+      </view>
+      <view class="account-target"><text class="wechat-dot">微</text>微信零钱</view>
+    </view>
+    <button class="withdraw-button" disabled="{{!canWithdraw || submitting}}" loading="{{submitting}}" bindtap="submitWithdraw">确认提现</button>
+  </view>
+
+  <view class="wallet-section records-section">
+    <view class="section-title">钱包明细</view>
+    <view class="empty-state" wx:if="{{!loading && !wallet.records.length}}">暂无钱包记录</view>
+    <view class="record-row" wx:for="{{wallet.records}}" wx:key="id">
+      <view class="record-icon record-icon-{{item.type}}">{{item.type === 'withdraw' ? '提' : '入'}}</view>
+      <view class="record-copy">
+        <view class="record-title">{{item.title}}</view>
+        <view class="record-time">{{item.createdAt}} · {{item.status}}</view>
+      </view>
+      <view class="record-amount {{item.amountClass}}">{{item.amountText}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,92 @@
+.after-header {
+  padding: 28rpx;
+  background:
+    linear-gradient(135deg, rgba(240, 68, 56, 0.10), rgba(250, 140, 22, 0.08)),
+    #ffffff;
+}
+
+.header-title {
+  color: #172033;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.header-desc {
+  margin-top: 8rpx;
+  color: #667085;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.after-card {
+  padding: 24rpx;
+}
+
+.after-type {
+  color: #172033;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.after-no {
+  margin-top: 8rpx;
+  color: #667085;
+  font-size: 23rpx;
+}
+
+.after-user {
+  margin-top: 18rpx;
+  color: #475467;
+  font-size: 25rpx;
+}
+
+.after-content {
+  margin-top: 14rpx;
+  padding: 18rpx;
+  border-radius: 12rpx;
+  background: #f7f9fc;
+  color: #172033;
+  font-size: 25rpx;
+  line-height: 1.45;
+}
+
+.after-result {
+  margin-top: 14rpx;
+  color: #16803c;
+  font-size: 24rpx;
+  line-height: 1.45;
+}
+
+.after-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20rpx;
+}
+
+.after-actions button {
+  min-width: 180rpx;
+}
+
+/* list-first refinement */
+.after-header,
+.after-card {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.after-card {
+  padding: 24rpx 4rpx;
+  border-width: 0 0 1rpx;
+  border-color: #edf1f7;
+}
+
+.after-content {
+  padding: 14rpx 0;
+  background: transparent;
+}
+
+/* icon polish */
+.after-type::before {
+  color: #cf1322;
+  content: '售 ';
+}

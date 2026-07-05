@@ -1,0 +1,261 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7f8fc 0, #ffffff 430rpx, #ffffff 100%);
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 96rpx;
+}
+
+.login-title {
+  color: #30343b;
+  font-size: 44rpx;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.login-subtitle {
+  margin-top: 18rpx;
+  color: #a7abb3;
+  font-size: 28rpx;
+  line-height: 1.35;
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 28rpx;
+  align-items: center;
+  width: 560rpx;
+  margin-top: 50rpx;
+}
+
+.login-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 460rpx;
+  height: 88rpx;
+  border-radius: 999rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 700;
+  line-height: 88rpx;
+  box-shadow: 0 12rpx 24rpx rgba(30, 45, 80, 0.10);
+}
+
+.auth-switch {
+  display: flex;
+  width: 460rpx;
+  padding: 6rpx;
+  border-radius: 16rpx;
+  background: #eef1f5;
+}
+
+.auth-tab {
+  display: flex;
+  width: 50%;
+  height: 68rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12rpx;
+  color: #7d8490;
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.auth-tab.active {
+  background: #ffffff;
+  color: #566fdc;
+  box-shadow: 0 5rpx 14rpx rgba(35, 45, 72, 0.09);
+}
+
+.account-panel {
+  display: flex;
+  width: 460rpx;
+  align-items: center;
+  flex-direction: column;
+}
+
+.account-field {
+  width: 100%;
+  box-sizing: border-box;
+  height: 82rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid #e1e5ec;
+  border-radius: 14rpx;
+  background: #ffffff;
+  box-shadow: 0 6rpx 16rpx rgba(35, 45, 72, 0.04);
+}
+
+.account-field + .account-field {
+  margin-top: 16rpx;
+}
+
+.account-input {
+  width: 100%;
+  height: 100%;
+  color: #30343b;
+  font-size: 27rpx;
+}
+
+
+.account-register-panel {
+  width: 100%;
+  margin-top: 22rpx;
+}
+
+.account-type-options {
+  width: 100%;
+}
+
+.account-building-picker {
+  width: 100%;
+  margin-top: 18rpx;
+  border-radius: 14rpx;
+}
+
+.account-option {
+  margin-top: 26rpx;
+  background: linear-gradient(135deg, #6c82ed 0%, #596fdc 100%);
+}
+
+.option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: inherit;
+  font-size: 22rpx;
+  font-weight: 800;
+  line-height: 42rpx;
+}
+
+.wechat-option {
+  background: linear-gradient(135deg, #10cf73 0%, #05ad61 100%);
+}
+
+.wechat-option .option-icon {
+  color: #09b965;
+}
+
+
+
+.phone-bind-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 520rpx;
+  margin-top: 60rpx;
+}
+
+.building-picker {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  width: 460rpx;
+  height: 76rpx;
+  margin-top: 30rpx;
+  padding: 0 28rpx;
+  border: 1rpx solid #edf0f5;
+  border-radius: 999rpx;
+  background: #ffffff;
+  color: #30343b;
+  font-size: 26rpx;
+  box-shadow: 0 8rpx 22rpx rgba(30, 45, 80, 0.06);
+}
+
+.picker-arrow {
+  color: #8b91a0;
+  font-size: 23rpx;
+}
+
+.bind-phone-btn {
+  width: 460rpx;
+  margin-top: 26rpx;
+}
+
+.test-phone-number {
+  margin-top: 20rpx;
+  color: #5f6673;
+  font-size: 24rpx;
+}
+
+.mock-phone-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 460rpx;
+  height: 76rpx;
+  margin-top: 14rpx;
+  border: 1rpx solid #10b66a;
+  border-radius: 999rpx;
+  background: #ffffff;
+  color: #09a85d;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 76rpx;
+}
+
+.merchant-type-panel {
+  width: 520rpx;
+}
+
+.merchant-type-label {
+  margin-bottom: 16rpx;
+  color: #5f6673;
+  font-size: 25rpx;
+  font-weight: 700;
+  text-align: center;
+}
+
+.merchant-type-options {
+  display: flex;
+  padding: 6rpx;
+  border-radius: 16rpx;
+  background: #eef1f5;
+}
+
+.merchant-type-option {
+  display: flex;
+  width: 50%;
+  height: 76rpx;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  border-radius: 12rpx;
+  color: #737a86;
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.merchant-type-option.active {
+  background: #ffffff;
+  color: #08a65d;
+  box-shadow: 0 6rpx 16rpx rgba(35, 45, 72, 0.10);
+}
+
+.merchant-type-icon {
+  display: flex;
+  width: 38rpx;
+  height: 38rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  background: #dde3eb;
+  color: #606a78;
+  font-size: 20rpx;
+}
+
+.merchant-type-option.active .merchant-type-icon {
+  background: #e4f8ed;
+  color: #08a65d;
+}

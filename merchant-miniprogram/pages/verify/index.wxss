@@ -1,0 +1,52 @@
+.verify-panel {
+  padding: 10rpx 28rpx 30rpx;
+}
+
+.code-input {
+  height: 104rpx;
+  font-size: 42rpx;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.button-row {
+  display: flex;
+  width: 100%;
+  gap: 16rpx;
+  margin-top: 26rpx;
+}
+
+.button-row button {
+  min-width: 0;
+  width: 0;
+  height: 84rpx;
+}
+
+.button-row .ghost-btn {
+  flex: 1 1 0;
+}
+
+.button-row .primary-btn {
+  flex: 1.4 1 0;
+}
+
+.result-card {
+  margin-top: 24rpx;
+  padding: 24rpx;
+}
+
+.result-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 14rpx 0;
+  color: #667085;
+  font-size: 25rpx;
+}
+
+.result-line text:last-child {
+  max-width: 430rpx;
+  color: #172033;
+  text-align: right;
+}

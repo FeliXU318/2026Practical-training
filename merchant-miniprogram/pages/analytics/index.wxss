@@ -1,0 +1,178 @@
+.analytics-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx;
+  background:
+    linear-gradient(135deg, rgba(22, 119, 255, 0.12), rgba(34, 160, 107, 0.10)),
+    #ffffff;
+}
+
+.header-title {
+  color: #172033;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.header-desc {
+  margin-top: 8rpx;
+  color: #667085;
+  font-size: 24rpx;
+}
+
+.period-pill {
+  height: 58rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid #cfd7e6;
+  border-radius: 999rpx;
+  color: #1677ff;
+  font-size: 24rpx;
+  font-weight: 700;
+  line-height: 58rpx;
+}
+
+.metric-delta {
+  margin-top: 8rpx;
+  color: #22a06b;
+  font-size: 23rpx;
+  font-weight: 700;
+}
+
+.chart-card,
+.rank-card,
+.inventory-card {
+  padding: 24rpx;
+}
+
+.bar-chart {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  gap: 14rpx;
+  height: 280rpx;
+  padding-top: 16rpx;
+}
+
+.bar-item {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: #667085;
+  font-size: 22rpx;
+}
+
+.bar-track {
+  display: flex;
+  align-items: flex-end;
+  width: 36rpx;
+  height: 210rpx;
+  margin-bottom: 12rpx;
+  border-radius: 999rpx;
+  background: #eef2f7;
+}
+
+.bar-fill {
+  width: 100%;
+  min-height: 18rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(180deg, #1677ff, #22a06b);
+}
+
+.rank-row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  padding: 18rpx 0;
+}
+
+.rank-index {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: #eaf3ff;
+  color: #1677ff;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.rank-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.rank-name {
+  overflow: hidden;
+  max-width: 380rpx;
+  color: #172033;
+  font-size: 26rpx;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rank-sales {
+  color: #667085;
+  font-size: 23rpx;
+}
+
+.rank-bar {
+  overflow: hidden;
+  height: 12rpx;
+  margin-top: 12rpx;
+  border-radius: 999rpx;
+  background: #eef2f7;
+}
+
+.rank-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: #fa8c16;
+}
+
+.inventory-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #edf1f7;
+  color: #172033;
+  font-size: 26rpx;
+}
+
+.inventory-row:last-child {
+  border-bottom: 0;
+}
+
+.inventory-row > text {
+  overflow: hidden;
+  max-width: 330rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stock-text {
+  margin-right: 10rpx;
+  color: #667085;
+  font-size: 23rpx;
+}
+
+/* list-first refinement */
+.analytics-header,
+.chart-card,
+.rank-card,
+.inventory-card {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.rank-row,
+.inventory-row {
+  border-bottom: 1rpx solid #edf1f7;
+}

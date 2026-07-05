@@ -1,0 +1,24 @@
+<view class="page-shell safe-bottom">
+  <view class="after-header card">
+    <view class="header-title">售后反馈处理</view>
+    <view class="header-desc">记录退款、补发或说明结果，完成后同步订单状态</view>
+  </view>
+
+  <view class="empty card section" wx:if="{{!loading && !items.length}}">暂无售后反馈</view>
+
+  <view class="after-card card section" wx:for="{{items}}" wx:key="id">
+    <view class="between">
+      <view>
+        <view class="after-type">{{item.type}}</view>
+        <view class="after-no">#{{item.orderNo}} · {{item.createdAt}}</view>
+      </view>
+      <text class="status-badge {{item.status === '待处理' ? 'status-aftersale' : 'status-completed'}}">{{item.status}}</text>
+    </view>
+    <view class="after-user">{{item.customer}}</view>
+    <view class="after-content">{{item.content}}</view>
+    <view class="after-result" wx:if="{{item.result}}">处理结果：{{item.result}}</view>
+    <view class="after-actions" wx:if="{{item.status === '待处理'}}">
+      <button class="primary-btn" data-id="{{item.id}}" bindtap="processItem">处理反馈</button>
+    </view>
+  </view>
+</view>

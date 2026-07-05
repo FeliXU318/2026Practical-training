@@ -1,0 +1,57 @@
+<view class="page-shell safe-bottom">
+  <view class="toolbar">
+    <view class="search-box">
+      <text class="search-icon">⌕</text>
+      <input value="{{keyword}}" bindinput="handleSearch" bindconfirm="loadProducts" confirm-type="search" placeholder="搜索商品名称或分类" />
+      <button wx:if="{{keyword}}" class="clear-btn" bindtap="clearSearch">×</button>
+    </view>
+    <button class="primary-btn add-btn" bindtap="addProduct">＋ 新增</button>
+  </view>
+
+  <view class="product-tabs section">
+    <view class="product-tab {{activeStatus === item.value ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="value" data-status="{{item.value}}" bindtap="changeTab">
+      {{item.label}}
+    </view>
+  </view>
+
+  <view class="empty card" wx:if="{{!loading && !products.length}}">暂无匹配商品</view>
+
+  <view class="product-card card" wx:for="{{products}}" wx:key="id" data-id="{{item.id}}" bindtap="editProduct">
+    <view class="product-main">
+      <image wx:if="{{item.imageUrl}}" class="product-thumb product-thumb-image" src="{{item.imageUrl}}" mode="aspectFill" />
+      <view wx:else class="product-thumb {{item.imageTone}}">{{item.shortName}}</view>
+      <view class="product-info">
+        <view class="between">
+          <view class="product-name">{{item.name}}</view>
+          <text class="status-badge {{item.statusClass}}">{{item.statusText}}</text>
+        </view>
+        <view class="product-desc">{{item.description}}</view>
+        <view class="tag-row">
+          <text class="tag {{tag === '库存预警' ? 'tag-orange' : tag === '每日鲜果' ? 'tag-green' : ''}}" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="product-data">
+      <view>
+        <text class="data-label">售价</text>
+        <text class="data-value">¥{{item.price}}</text>
+      </view>
+      <view>
+        <text class="data-label">库存</text>
+        <text class="data-value">{{item.stock}}</text>
+      </view>
+      <view>
+        <text class="data-label">销量</text>
+        <text class="data-value">{{item.sales}}</text>
+      </view>
+    </view>
+
+    <view class="product-actions">
+      <button class="icon-btn" data-id="{{item.id}}" data-delta="-1" catchtap="adjustStock">-</button>
+      <button class="icon-btn" data-id="{{item.id}}" data-delta="1" catchtap="adjustStock">+</button>
+      <button class="mini-btn" data-id="{{item.id}}" catchtap="toggleProduct">{{item.onSale ? '下架' : '上架'}}</button>
+      <button class="primary-btn action-edit" data-id="{{item.id}}" catchtap="editProduct">编辑</button>
+    </view>
+  </view>
+</view>

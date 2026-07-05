@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/orders/index",
+    "pages/login/index",
+    "pages/dashboard/index",
+    "pages/orders/detail",
+    "pages/products/index",
+    "pages/products/edit",
+    "pages/verify/index",
+    "pages/center/index",
+    "pages/wallet/index",
+    "pages/analytics/index",
+    "pages/aftersales/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "校园商家端",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f7fb",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#667085",
+    "selectedColor": "#1677ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/orders/index",
+        "text": "订单",
+        "iconPath": "assets/icons/orders-normal.png",
+        "selectedIconPath": "assets/icons/orders-selected.png"
+      },
+      {
+        "pagePath": "pages/products/index",
+        "text": "商品",
+        "iconPath": "assets/icons/products-normal.png",
+        "selectedIconPath": "assets/icons/products-selected.png"
+      },
+      {
+        "pagePath": "pages/center/index",
+        "text": "我的",
+        "iconPath": "assets/icons/center-normal.png",
+        "selectedIconPath": "assets/icons/center-selected.png"
+      }
+    ]
+  },
+  "style": "v2"
+}

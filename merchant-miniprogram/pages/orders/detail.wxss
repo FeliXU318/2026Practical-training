@@ -1,0 +1,164 @@
+.timeline-card,
+.info-card {
+  padding: 24rpx;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8rpx;
+}
+
+.timeline-step {
+  position: relative;
+  min-height: 96rpx;
+  padding-top: 12rpx;
+  color: #98a2b3;
+  font-size: 23rpx;
+  text-align: center;
+}
+
+.dot {
+  width: 22rpx;
+  height: 22rpx;
+  margin: 0 auto 12rpx;
+  border: 4rpx solid #d8dee9;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.timeline-step.done,
+.timeline-step.active {
+  color: #1677ff;
+  font-weight: 700;
+}
+
+.timeline-step.done .dot,
+.timeline-step.active .dot {
+  border-color: #1677ff;
+  background: #1677ff;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 14rpx 0;
+  color: #667085;
+  font-size: 25rpx;
+}
+
+.info-row text:last-child {
+  max-width: 460rpx;
+  color: #172033;
+  text-align: right;
+}
+
+.remark {
+  margin-top: 14rpx;
+  padding: 18rpx;
+  border-radius: 12rpx;
+  background: #fffaf0;
+  color: #7a4b00;
+  font-size: 24rpx;
+  line-height: 1.45;
+}
+
+.receipt-table {
+  margin-top: 8rpx;
+  border-top: 1rpx dashed #d8dee9;
+  border-bottom: 1rpx dashed #d8dee9;
+}
+
+.receipt-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) 112rpx 70rpx 118rpx;
+  column-gap: 10rpx;
+  align-items: flex-start;
+  padding: 14rpx 0;
+  color: #172033;
+  font-size: 22rpx;
+  line-height: 1.35;
+}
+
+.receipt-head {
+  color: #667085;
+  font-weight: 700;
+  border-bottom: 1rpx solid #e6eaf0;
+}
+
+.receipt-line + .receipt-line {
+  border-top: 1rpx solid #f1f3f6;
+}
+
+.receipt-product {
+  min-width: 0;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.receipt-head .receipt-product {
+  font-weight: 700;
+}
+
+.receipt-price,
+.receipt-count,
+.receipt-total {
+  min-width: 0;
+  text-align: right;
+  word-break: break-all;
+}
+
+.receipt-count {
+  text-align: center;
+}
+
+.receipt-total {
+  color: #172033;
+  font-weight: 800;
+}
+
+.receipt-grand-total {
+  border-top: 1rpx dashed #d8dee9;
+  font-weight: 800;
+}
+
+.receipt-grand-label {
+  grid-column: 1 / 4;
+  color: #172033;
+  text-align: right;
+}
+
+.receipt-grand-value {
+  color: #172033;
+  text-align: right;
+  font-size: 25rpx;
+  font-weight: 800;
+}
+.muted {
+  color: #98a2b3;
+  font-weight: 400;
+}
+.total text {
+  color: #172033;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+
+.fixed-actions {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  gap: 16rpx;
+  padding: 18rpx 24rpx calc(18rpx + env(safe-area-inset-bottom));
+  border-top: 1rpx solid #e6eaf0;
+  background: #ffffff;
+}
+
+.fixed-actions button {
+  flex: 1;
+  height: 82rpx;
+}

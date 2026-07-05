@@ -1,0 +1,78 @@
+<view class="page-shell safe-bottom">
+  <view class="edit-header card">
+    <view>
+      <view class="edit-title">{{isEdit ? '编辑商品' : '新增商品'}}</view>
+      <view class="edit-subtitle">{{isFruit ? '维护水果单品、果切套餐和组合套餐' : '维护零食饮料、文具日用等商品'}}</view>
+    </view>
+    <text class="status-badge {{form.onSale ? 'status-on' : 'status-off'}}">{{form.onSale ? '已上架' : '已下架'}}</text>
+  </view>
+
+  <view class="form-card card">
+    <view class="form-item photo-field">
+      <view class="form-label-row">
+        <text class="form-label">商品照片</text>
+        <text class="photo-required">上架必填</text>
+      </view>
+      <view class="photo-uploader">
+        <image wx:if="{{form.imageUrl}}" class="photo-preview" src="{{form.imageUrl}}" mode="aspectFill" bindtap="previewProductPhoto" />
+        <button wx:else class="photo-placeholder" loading="{{uploading}}" bindtap="chooseProductPhoto">
+          <text class="photo-plus">+</text>
+          <text>上传照片</text>
+        </button>
+        <view wx:if="{{form.imageUrl}}" class="photo-actions">
+          <button class="mini-btn" loading="{{uploading}}" bindtap="chooseProductPhoto">更换照片</button>
+          <button class="plain-btn" bindtap="removeProductPhoto">删除</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">商品名称</text>
+      <input class="input" value="{{form.name}}" data-field="name" bindinput="handleInput" placeholder="例如 每日鲜果杯" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">分类</text>
+      <picker range="{{categories}}" value="{{categoryIndex}}" bindchange="handleCategoryChange">
+        <view class="picker-field">
+          <text>{{form.category}}</text>
+          <text class="muted">选择</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="two-col">
+      <view class="form-item">
+        <text class="form-label">售价</text>
+        <input class="input" type="digit" value="{{form.price}}" data-field="price" bindinput="handleInput" placeholder="0.00" />
+      </view>
+      <view class="form-item">
+        <text class="form-label">库存</text>
+        <input class="input" type="number" value="{{form.stock}}" data-field="stock" bindinput="handleInput" placeholder="0" />
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">商品标签</text>
+      <input class="input" value="{{tagText}}" bindinput="handleTagInput" placeholder="用顿号或逗号分隔，如 热销、商家自配" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">说明</text>
+      <textarea class="textarea" value="{{form.description}}" data-field="description" bindinput="handleInput" placeholder="填写商品说明、新鲜度说明或自配或自提提示" />
+    </view>
+
+    <view class="switch-row">
+      <view>
+        <view class="switch-title">上架销售</view>
+        <view class="switch-desc">关闭后用户端不可下单</view>
+      </view>
+      <switch checked="{{form.onSale}}" data-field="onSale" bindchange="handleSwitch" color="#1677ff" />
+    </view>
+
+  </view>
+
+  <view class="save-actions">
+    <button class="primary-btn save-btn" loading="{{saving}}" bindtap="saveProduct">保存商品</button>
+  </view>
+</view>

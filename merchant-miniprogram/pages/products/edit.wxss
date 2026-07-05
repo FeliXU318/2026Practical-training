@@ -1,0 +1,121 @@
+.edit-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 28rpx;
+}
+
+.edit-title {
+  color: #172033;
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.edit-subtitle {
+  max-width: 470rpx;
+  margin-top: 8rpx;
+  color: #667085;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.form-card {
+  margin-top: 24rpx;
+  padding: 8rpx 28rpx 30rpx;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 112rpx;
+  margin-top: 22rpx;
+  padding: 18rpx 0;
+  border-top: 1rpx solid #edf1f7;
+}
+
+.switch-title {
+  color: #172033;
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.switch-desc {
+  margin-top: 8rpx;
+  color: #667085;
+  font-size: 23rpx;
+}
+
+.save-actions {
+  display: flex;
+  width: 100%;
+  margin-top: 28rpx;
+}
+
+.save-actions .save-btn {
+  flex: 1;
+  width: auto;
+  height: 88rpx;
+  margin: 0;
+}
+
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.photo-required {
+  color: #d99a00;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.photo-uploader {
+  display: flex;
+  gap: 18rpx;
+  align-items: center;
+}
+
+.photo-preview,
+.photo-placeholder {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 18rpx;
+}
+
+.photo-preview {
+  display: block;
+  background: #f2f4f7;
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx dashed #c9d2e3;
+  background: #f8fbff;
+  color: #6079ea;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.photo-plus {
+  font-size: 54rpx;
+  line-height: 1;
+}
+
+.photo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+  align-items: flex-start;
+}

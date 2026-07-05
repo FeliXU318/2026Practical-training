@@ -1,0 +1,41 @@
+<view class="page-shell safe-bottom">
+  <view class="delivery-header card">
+    <view>
+      <view class="header-title">商家自配任务</view>
+      <view class="header-desc">客户选择商家自配时，在这里安排自配人员并同步订单状态</view>
+    </view>
+  </view>
+
+  <scroll-view scroll-x class="tabs section">
+    <button class="tab {{activeStatus === item.value ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="value" data-status="{{item.value}}" bindtap="changeTab">
+      {{item.label}}
+    </button>
+  </scroll-view>
+
+  <view class="rider-picker card">
+    <text>默认自配人员</text>
+    <picker range="{{riders}}" value="{{riderIndex}}" bindchange="handleRiderChange">
+      <view class="rider-value">{{riders[riderIndex]}} · 切换</view>
+    </picker>
+  </view>
+
+  <view class="empty card" wx:if="{{!loading && !tasks.length}}">当前没有商家自配任务</view>
+
+  <view class="task-card card" wx:for="{{tasks}}" wx:key="id">
+    <view class="between">
+      <view class="task-no">#{{item.orderNo}}</view>
+      <text class="task-status task-{{item.status}}">{{item.status === 'new' ? '待安排' : item.status === 'assigned' ? '已安排' : item.status === 'delivering' ? '自配中' : '已完成'}}</text>
+    </view>
+    <view class="task-info">{{item.itemSummary}}</view>
+    <view class="task-meta">
+      <text>{{item.dorm}}</text>
+      <text>{{item.reserveTime}}</text>
+    </view>
+    <view class="task-rider">自配人员：{{item.riderName || '暂未安排'}}</view>
+
+    <view class="task-actions">
+      <button class="mini-btn" wx:if="{{item.status === 'new'}}" data-id="{{item.id}}" bindtap="assignTask">安排</button>
+      <button class="primary-btn" wx:if="{{item.status !== 'done'}}" data-id="{{item.id}}" bindtap="completeTask">完成自配</button>
+    </view>
+  </view>
+</view>

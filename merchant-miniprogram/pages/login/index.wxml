@@ -1,0 +1,69 @@
+<view class="login-page">
+  <view class="login-content">
+    <view class="login-title">{{loginStep === 'wechat' ? '校园生活服务' : '绑定手机号'}}</view>
+    <view class="login-subtitle">{{loginStep === 'phone' ? '完成绑定后即可进入商家端' : loginMode === 'phone' ? '使用手机号登录' : '使用微信登录商家端'}}</view>
+
+    <view class="login-actions" wx:if="{{loginStep === 'wechat'}}">
+      <view class="auth-switch">
+        <view class="auth-tab {{loginMode === 'phone' ? 'active' : ''}}" data-mode="phone" bindtap="handleLoginModeChange">手机号登录</view>
+        <view class="auth-tab {{loginMode === 'wechat' ? 'active' : ''}}" data-mode="wechat" bindtap="handleLoginModeChange">微信登录</view>
+      </view>
+
+      <view class="account-panel" wx:if="{{loginMode === 'phone'}}">
+        <view class="account-field">
+          <input class="account-input" value="{{phone}}" data-field="phone" bindinput="handleLoginInput" placeholder="请输入手机号" maxlength="11" type="number" />
+        </view>
+        <view class="account-field">
+          <input class="account-input" value="{{password}}" data-field="password" bindinput="handleLoginInput" placeholder="请输入登录密码" maxlength="32" password />
+        </view>
+
+        <view class="account-register-panel">
+          <view class="merchant-type-label">商家类型</view>
+          <view class="merchant-type-options account-type-options">
+            <view class="merchant-type-option {{merchantTypeIndex === index ? 'active' : ''}}" wx:for="{{merchantTypes}}" wx:key="value" data-index="{{index}}" bindtap="handleMerchantTypeChange">
+              <text class="merchant-type-icon">{{item.icon}}</text>
+              <text>{{item.label}}</text>
+            </view>
+          </view>
+          <picker range="{{typeOptions}}" value="{{typeIndex}}" bindchange="handleTypeChange">
+            <view class="building-picker account-building-picker">
+              <text>{{typeOptions[typeIndex]}}</text>
+              <text class="picker-arrow">{{locationPickerText}}</text>
+            </view>
+          </picker>
+        </view>
+
+        <button class="login-option account-option" loading="{{loading}}" bindtap="loginWithPhone">登录 / 注册</button>
+      </view>
+
+      <button class="login-option wechat-option" wx:else loading="{{loading}}" bindtap="loginWithWechat">
+        <text class="option-icon">微</text>
+        <text>微信手机号登录</text>
+      </button>
+    </view>
+
+    <view class="phone-bind-panel" wx:if="{{loginStep === 'phone'}}">
+      <view class="merchant-type-panel">
+        <view class="merchant-type-label">请选择您的商家类型</view>
+        <view class="merchant-type-options">
+          <view class="merchant-type-option {{merchantTypeIndex === index ? 'active' : ''}}" wx:for="{{merchantTypes}}" wx:key="value" data-index="{{index}}" bindtap="handleMerchantTypeChange">
+            <text class="merchant-type-icon">{{item.icon}}</text>
+            <text>{{item.label}}</text>
+          </view>
+        </view>
+      </view>
+      <picker range="{{typeOptions}}" value="{{typeIndex}}" bindchange="handleTypeChange">
+        <view class="building-picker">
+          <text>{{typeOptions[typeIndex]}}</text>
+          <text class="picker-arrow">{{locationPickerText}}</text>
+        </view>
+      </picker>
+      <button class="login-option wechat-option bind-phone-btn" loading="{{binding}}" disabled="{{merchantTypeIndex < 0 || binding}}" open-type="getPhoneNumber" bindgetphonenumber="bindPhone">
+        <text class="option-icon">机</text>
+        <text>{{merchantTypeIndex < 0 ? '请先选择商家类型' : '绑定微信手机号'}}</text>
+      </button>
+      <view class="test-phone-number">测试手机号：13800000000</view>
+      <button class="mock-phone-btn" loading="{{binding}}" disabled="{{merchantTypeIndex < 0 || binding}}" bindtap="bindMockPhone">绑定测试手机号</button>
+    </view>
+  </view>
+</view>

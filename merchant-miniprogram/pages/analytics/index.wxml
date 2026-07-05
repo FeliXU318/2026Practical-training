@@ -1,0 +1,58 @@
+<view class="page-shell safe-bottom">
+  <view class="analytics-header card">
+    <view>
+      <view class="header-title">数据看板</view>
+      <view class="header-desc">销售额、订单量、热销商品和库存变化</view>
+    </view>
+    <picker range="{{periods}}" value="{{periodIndex}}" bindchange="changePeriod">
+      <view class="period-pill">{{periods[periodIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="metric-grid section">
+    <view class="metric-card" wx:for="{{summary}}" wx:key="label">
+      <view class="metric-label">{{item.label}}</view>
+      <view class="metric-value">{{item.value}}</view>
+      <view class="metric-delta">{{item.delta}}</view>
+    </view>
+  </view>
+
+  <view class="section card chart-card">
+    <view class="section-title">订单趋势</view>
+    <view class="bar-chart">
+      <view class="bar-item" wx:for="{{trend}}" wx:key="label">
+        <view class="bar-track">
+          <view class="bar-fill" style="height: {{item.height}}%;"></view>
+        </view>
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section card rank-card">
+    <view class="section-title">热销排行</view>
+    <view class="rank-row" wx:for="{{topProducts}}" wx:key="id">
+      <view class="rank-index">{{item.rank}}</view>
+      <view class="rank-body">
+        <view class="between">
+          <text class="rank-name">{{item.name}}</text>
+          <text class="rank-sales">{{item.sales}} 件</text>
+        </view>
+        <view class="rank-bar">
+          <view class="rank-fill" style="width: {{item.percent}}%;"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section card inventory-card">
+    <view class="section-title">库存变化</view>
+    <view class="inventory-row" wx:for="{{inventory}}" wx:key="name">
+      <text>{{item.name}}</text>
+      <view>
+        <text class="stock-text">库存 {{item.stock}}</text>
+        <text class="tag {{item.status === '需补货' ? 'tag-orange' : item.status === '可售' ? 'tag-green' : ''}}">{{item.status}}</text>
+      </view>
+    </view>
+  </view>
+</view>

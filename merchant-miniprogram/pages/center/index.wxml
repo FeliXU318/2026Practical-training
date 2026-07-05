@@ -1,0 +1,77 @@
+<view class="center-page safe-bottom">
+  <view class="merchant-hero">
+    <view class="merchant-avatar">商</view>
+    <view class="merchant-identity">
+      <view class="merchant-name">{{profile.merchantName || '校园商户'}}</view>
+      <view class="merchant-location">{{profile.businessLabel || '宿舍楼栋'}} · {{profile.merchantCategoryLabel || '便利店商家'}}</view>
+      <view class="merchant-phone">{{phone || '手机号未绑定'}}</view>
+    </view>
+    <view class="merchant-badge">已认证</view>
+  </view>
+
+  <view class="business-overview">
+    <view class="overview-copy">
+      <view class="overview-title">今日经营</view>
+      <view class="overview-status {{isOpen ? '' : 'closed'}}" bindtap="toggleBusinessStatus">
+        <text class="status-dot"></text>{{isOpen ? '营业中' : '已打烊'}}
+      </view>
+    </view>
+    <view class="overview-metric">
+      <text class="overview-value">{{overviewLoading ? '--' : overview.orderCount}}</text>
+      <text class="overview-label">订单</text>
+    </view>
+    <view class="overview-metric">
+      <text class="overview-value">{{overviewLoading ? '--' : '¥' + overview.revenueText}}</text>
+      <text class="overview-label">营业额</text>
+    </view>
+  </view>
+
+  <view class="center-section">
+    <view class="section-header" data-status="all" bindtap="openOrders">
+      <text class="section-heading">订单管理</text>
+      <text class="section-link">全部订单 ›</text>
+    </view>
+    <view class="order-status-grid">
+      <view class="order-status-item" wx:for="{{orderStatuses}}" wx:key="status" data-status="{{item.status}}" bindtap="openOrders">
+        <view class="status-icon">
+          <image class="status-icon-image" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <view class="status-count">{{overviewLoading ? '--' : item.count}}</view>
+        <view class="status-label">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="center-section">
+    <view class="section-header">
+      <text class="section-heading">常用功能</text>
+    </view>
+    <view class="feature-list">
+      <view class="feature-row" wx:for="{{features}}" wx:key="key" data-path="{{item.path}}" bindtap="openFeature">
+        <view class="feature-icon">
+          <image class="feature-icon-image" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <view class="feature-copy">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-desc">{{item.desc}}</view>
+        </view>
+        <text class="feature-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="center-section account-section">
+    <view class="section-header">
+      <text class="section-heading">账号信息</text>
+    </view>
+    <view class="account-row">
+      <text class="account-label">所属商户</text>
+      <text class="account-value">{{profile.businessLabel || '宿舍楼栋商户'}}</text>
+    </view>
+    <view class="account-row">
+      <text class="account-label">绑定手机</text>
+      <text class="account-value">{{phone || '未绑定'}}</text>
+    </view>
+    <button class="logout-button" bindtap="logout">退出登录</button>
+  </view>
+</view>

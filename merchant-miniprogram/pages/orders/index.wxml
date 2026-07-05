@@ -1,0 +1,57 @@
+<view class="page-shell safe-bottom orders-page">
+  <view class="order-tabs">
+    <view class="order-tab {{activeStatus === item.value ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="value" data-status="{{item.value}}" bindtap="changeTab">
+      {{item.label}}
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!loading && !orders.length}}">当前状态下暂无订单</view>
+
+  <view class="order-card" wx:for="{{orders}}" wx:key="id">
+    <view class="card-main" data-id="{{item.id}}" bindtap="openDetail">
+      <view class="shop-row">
+        <view class="shop-avatar-wrap">
+          <image class="shop-avatar-img" wx:if="{{item.merchantAvatar}}" src="{{item.merchantAvatar}}" mode="aspectFill"></image>
+          <view class="shop-avatar-placeholder" wx:else>{{item.merchantLogoText}}</view>
+        </view>
+        <view class="shop-main">
+          <view class="shop-title-row">
+            <text class="shop-name">{{item.orderTitle}}</text>
+            <text class="chevron">›</text>
+          </view>
+          <view class="promo-row">
+            <text class="promo-pill" wx:for="{{item.promoTags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+          </view>
+        </view>
+        <text class="status-text status-text-{{item.status}}">{{item.statusText}}</text>
+      </view>
+
+      <view class="goods-row">
+        <view class="goods-preview">
+          <view class="goods-item" wx:for="{{item.displayItems}}" wx:for-item="goods" wx:key="name">
+            <image class="goods-img" wx:if="{{goods.imageUrl}}" src="{{goods.imageUrl}}" mode="aspectFill"></image>
+            <view class="goods-placeholder {{goods.previewClass}}" wx:else>{{goods.shortName}}</view>
+            <text class="goods-name" wx:if="{{goods.caption}}">{{goods.caption}}</text>
+          </view>
+          <view class="goods-more" wx:if="{{item.extraItemCount > 0}}">+{{item.extraItemCount}}</view>
+        </view>
+        <view class="order-summary">
+          <view class="summary-price">¥{{item.amountText}}</view>
+          <view class="summary-count">共 {{item.itemQuantity}} 件</view>
+        </view>
+      </view>
+
+      <view class="order-meta-line">
+        <text>{{item.createdAt}}</text>
+        <text>{{item.deliveryText}} · #{{item.orderNo}}</text>
+      </view>
+    </view>
+
+    <view class="order-footer">
+      <button class="outline-btn" data-id="{{item.id}}" catchtap="openDetail">查看详情</button>
+      <button class="outline-btn primary-outline" wx:for="{{item.actions}}" wx:for-item="action" wx:key="status" data-id="{{item.id}}" data-status="{{action.status}}" catchtap="handleAction">
+        {{action.text}}
+      </button>
+    </view>
+  </view>
+</view>
